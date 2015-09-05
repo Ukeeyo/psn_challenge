@@ -172,7 +172,7 @@ html {
   width: 100%;
   padding-top: 20px;
   background-color: rgba(185, 163, 227, 0.8);
-  font-size: 20px;
+  font-size: initial;
 }
 
 .row:last-child {

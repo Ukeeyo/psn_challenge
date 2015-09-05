@@ -163,7 +163,7 @@ var app = (function() {
         img.src = pageData[i].preview.medium;
         displayName.appendChild(document.createTextNode(pageData[i].channel.display_name));
         meta.appendChild(document.createTextNode(pageData[i].game + " - " + pageData[i].viewers + " viewers"));
-        description.appendChild(document.createTextNode("text text text text text"));
+        description.appendChild(document.createTextNode(pageData[i].channel.status));
 
         textContainer.appendChild(displayName);
         textContainer.appendChild(meta);
