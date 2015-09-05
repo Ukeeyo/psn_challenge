@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Yukio's Twitch Search</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <svg class="arrows left" id="left-arrows" viewBox="0 0 100 100">
+    <path class="a1" d="M0 0 L30 32 L60 0"></path>
+    <path class="a2" d="M0 20 L30 52 L60 20"></path>
+    <path class="a3" d="M0 40 L30 72 L60 40"></path>
+  </svg>
+  <svg class="arrows right" id="right-arrows" viewBox="0 0 100 100">
+    <path class="a1" d="M0 0 L30 32 L60 0"></path>
+    <path class="a2" d="M0 20 L30 52 L60 20"></path>
+    <path class="a3" d="M0 40 L30 72 L60 40"></path>
+  </svg>
+
+  <div id="main-container">
+    <img src="imgs/twitch.png" alt="twitch" id="background">
+    <div id="header">
+      <form id="search-form">
+        <input type="text" id="search-bar" placeholder="Search">
+        <input type="submit" value="search" id="submit-button">
+      </form>
+    </div>
+
+    <div id="results-header">
+      <div id="total-results-container">
+        Total results: <span id="total-results">0</span>
+      </div>
+      <div id="page-counter-container">
+        <div class="button-left" id="previous-button"></div>
+        <div id="page-count">1/1</div>
+        <div class="button-right" id="next-button"></div>
+      </div>
+    </div>
+
+    <div id="results">
+      <div class="page">
+        <div id="home">
+          <div>Welcom to twitch search!</div>
+        </div>
+    </div>
+  </div>
+  <script src="twitch.js"></script>
+</body>
+</html>
