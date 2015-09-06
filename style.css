@@ -15,14 +15,17 @@ html {
 
 #background {
   position: absolute;
-  max-width: 100%;
+  max-width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
   top: 50%;
   transform: translateY(-50%);
   z-index: -1;
 }
 
 #home {
-  height: 850px;
+  height: 590px;
   width: 100%;
   background-color: rgba(185, 163, 227, 0.8);
   font-family: 'Twitch', Fallback, sans-serif;
@@ -41,13 +44,13 @@ html {
   width: 80%;
   margin-right: 10%;
   position: relative;
-  min-height: 980px;
+  min-height: 690px;
 }
 
 #header {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 100%;
-  height: 100px;
+  height: 70px;
   background-color: #6441A5;
   display: flex;
   flex-direction: column;
@@ -126,7 +129,7 @@ html {
   height: 50px;
   width: 60px;
   position: fixed;
-  margin-top: 50%;
+  margin-top: 58px;
   cursor: pointer;
   -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
@@ -170,26 +173,26 @@ html {
 .row {
   display: inline-block;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 15px;
   background-color: rgba(185, 163, 227, 0.8);
-  font-size: 20px;
+  font-size: medium;
 }
 
 .row:last-child {
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 .row img {
-  height: 150px;
-  width: 150px;
-  margin-left: 20px;
+  height: 100px;
+  width: 100px;
+  margin-left: 15px;
   display: inline-block;
   float: left;
 }
 
 .row div {
   width: 50%;
-  margin-left: 20px;
+  margin-left: 15px;
   display: inline-block;
   float: left;
 }
