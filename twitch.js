@@ -4,7 +4,6 @@ var app = (function() {
   var pages = [[]];
   var currentPage = -1;
   var currentSearch;
-  var captureQuery = /q=(.{1,})/;
 
   return {
     // setup for event delegation
@@ -116,6 +115,7 @@ var app = (function() {
     },
 
     saveStreams: function(data) {
+      var captureQuery = /q=(.{1,})/;
       // return if user began searching for something else while more pages were being loaded
       if(captureQuery.exec(data._links.self)[1] != currentSearch){
         return;
@@ -189,4 +189,3 @@ var app = (function() {
 })();
 
 app.setUp();
-
