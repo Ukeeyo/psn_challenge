@@ -7,12 +7,12 @@ var app = (function() {
 
   return {
     // setup for event delegation
-    setUp: function(){
+    setUp: function() {
       document.getElementById("previous-button").addEventListener("click", this.previousPage.bind(this));
       document.getElementById("left-arrows").addEventListener("click", this.previousPage.bind(this));
       document.getElementById("next-button").addEventListener("click", this.nextPage.bind(this));
       document.getElementById("right-arrows").addEventListener("click", this.nextPage.bind(this));
-      document.getElementById("search-form").addEventListener("submit", function(e){
+      document.getElementById("search-form").addEventListener("submit", function(e) {
         e.preventDefault();
         this.searchStreams(document.getElementById("search-bar").value);
       }.bind(this));
@@ -24,22 +24,22 @@ var app = (function() {
       document.getElementById("total-results").innerHTML = resultsCount;
       document.getElementById("page-count").innerHTML = currentPage+1+"/"+pages.length;
 
-      if(currentPage === 0){
+      if(currentPage === 0) {
         document.getElementById("left-arrows").style.visibility = "hidden";
-      }else{
+      } else {
         document.getElementById("left-arrows").style.visibility = "visible";
       }
 
-      if(currentPage === pages.length-1){
+      if(currentPage === pages.length-1) {
         document.getElementById("right-arrows").style.visibility = "hidden";
-      }else{
+      } else {
         document.getElementById("right-arrows").style.visibility = "visible";
       }
     },
 
     nextPage: function() {
       // if user is not on the last page and there are pages to display, the next page can be shown
-      if(currentPage < pages.length-1 && pages[0].length > 0){
+      if(currentPage < pages.length-1 && pages[0].length > 0) {
         currentPage += 1;
         var newPage = this.constructPage(currentPage);
         var oldPage = document.getElementsByClassName("page");
@@ -51,9 +51,9 @@ var app = (function() {
         }
 
         // wait for previous page to transition out before removing it.
-        setTimeout(function(){
+        setTimeout(function() {
           for (var i = oldPage.length - 1; i >= 0; i--) {
-            if(oldPage[i].className === "page slide-out"){
+            if(oldPage[i].className === "page slide-out") {
               oldPage[i].remove();
             }
           }
@@ -67,7 +67,7 @@ var app = (function() {
 
     previousPage: function() {
       // if user is not on the first page, the previous page can be displayed
-      if(currentPage > 0){
+      if(currentPage > 0) {
         currentPage -= 1;
         var newPage = this.constructPage(currentPage);
         var oldPage = document.getElementsByClassName("page");
@@ -79,9 +79,9 @@ var app = (function() {
         }
 
         // wait for previous page to transition out before removing
-        setTimeout(function(){
+        setTimeout(function() {
           for (var i = oldPage.length - 1; i >= 0; i--) {
-            if(oldPage[i].className === "page slide-out-right"){
+            if(oldPage[i].className === "page slide-out-right") {
               oldPage[i].remove();
             }
           }
@@ -106,7 +106,7 @@ var app = (function() {
       var script = document.createElement('script');
       script.src = url;
       // after the script is loaded (and executed), remove it
-      script.onload = function () {
+      script.onload = function() {
         this.remove();
       };
       // insert script tag into the DOM (append to <head>)
@@ -117,15 +117,15 @@ var app = (function() {
     saveStreams: function(data) {
       var captureQuery = /q=(.{1,})/;
       // return if user began searching for something else while more pages were being loaded
-      if(captureQuery.exec(data._links.self)[1] != currentSearch){
+      if(captureQuery.exec(data._links.self)[1] != currentSearch) {
         return;
       }
 
       // checks to see if this is the first time we are hitting the API with a unique search query so that we can render the first page while the other pages are being loaded.
-      if(pages[0].length === 0){
+      if(pages[0].length === 0) {
         var newSearch = true;
       }
-      if(data.streams.length > 0){
+      if(data.streams.length > 0) {
         // add streams to the end of last page if last page has less than 5 element
         while(pages[pages.length-1].length < 5 && data.streams.length > 0){
           pages[pages.length-1].push(data.streams.shift());
@@ -139,10 +139,10 @@ var app = (function() {
         // update results and get remaining streams from twitch API
         this.updateResultsHeader();
         this.getStreams(data._links.next+"&callback=app.saveStreams");
-      }else{
+      } else {
         this.preloadImages();
       }
-      if(newSearch){
+      if(newSearch) {
         this.nextPage();
       }
     },
