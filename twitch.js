@@ -140,7 +140,7 @@ var app = (function() {
         this.updateResultsHeader();
         this.getStreams(data._links.next+"&callback=app.saveStreams");
       } else {
-        return;
+        this.preloadImages();
       }
       if(newSearch) {
         this.nextPage();
@@ -175,6 +175,16 @@ var app = (function() {
       }
       return newPage;
     },
+
+    // caches images decrease loading times
+    preloadImages: function() {
+      var loadedPages = [].concat.apply([], pages);
+      for (var i = loadedPages.length - 1; i >= 0; i--) {
+        var newImage = document.createElement("img");
+        newImage.src = loadedPages[i].preview.medium;
+      }
+    },
+
   };
 })();
 
