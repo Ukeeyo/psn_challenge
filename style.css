@@ -15,7 +15,10 @@ html {
 
 #background {
   position: absolute;
-  max-width: 100%;
+  max-width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
   top: 50%;
   transform: translateY(-50%);
   z-index: -1;
@@ -126,7 +129,7 @@ html {
   height: 50px;
   width: 60px;
   position: fixed;
-  margin-top: 50%;
+  margin-top: 58px;
   cursor: pointer;
   -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
