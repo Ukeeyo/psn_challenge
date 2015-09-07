@@ -176,18 +176,17 @@ var app = (function() {
       return newPage;
     },
 
-    // caches images decrease loading times
+    // caches images to decrease loading times
     preloadImages: function() {
-      var loadedPages = [].concat.apply([], pages);
+      var allStreams = [].concat.apply([], pages);
       loadImage(0);
       function loadImage(i) {
-        if(i < loadedPages.length){
+        if(i < allStreams.length){
           var newImage = document.createElement("img");
-          newImage.src = loadedPages[i].preview.medium;
+          newImage.src = allStreams[i].preview.medium;
           newImage.onload = loadImage(i+1);
         }
       }
-
     },
 
   };
