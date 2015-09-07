@@ -94,8 +94,8 @@ var app = (function() {
     },
 
     searchStreams: function(search) {
-      // replaces spaces with + for the api and stores search query for future reference
-      search = search.replace(/ /g,"+");
+      // cleans input and stores search query for future reference
+      search = search.replace(/[^\w\s]/gi, '').replace(/ /g,"+");
       currentSearch = search;
       pages = [[]];
       currentPage = -1;
