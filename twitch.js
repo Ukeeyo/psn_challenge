@@ -158,9 +158,12 @@ var app = (function() {
         var displayName = document.createElement("h2");
         var meta = document.createElement("p");
         var description = document.createElement("p");
+        var link = document.createElement("a");
 
         row.className = "row";
         img.src = pageData[i].preview.medium;
+        link.href = pageData[i].channel.url;
+        link.target = "_blank";
         displayName.appendChild(document.createTextNode(pageData[i].channel.display_name));
         meta.appendChild(document.createTextNode(pageData[i].game + " - " + pageData[i].viewers + " viewers"));
         description.appendChild(document.createTextNode(pageData[i].channel.status));
@@ -169,7 +172,8 @@ var app = (function() {
         textContainer.appendChild(meta);
         textContainer.appendChild(description);
 
-        row.appendChild(img);
+        link.appendChild(img);
+        row.appendChild(link);
         row.appendChild(textContainer);
         newPage.appendChild(row);
       }
